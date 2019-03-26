@@ -1,0 +1,7 @@
+{
+  "universal": {
+    "project": "uni-app",
+    "skipInstall": false,
+    "directory": "."
+  }
+}

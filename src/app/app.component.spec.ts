@@ -1,19 +1,12 @@
 import { TestBed, async } from '@angular/core/testing';
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-
-import { ZXingScannerModule } from './modules/zxing-scanner/zxing-scanner.module';
-
+import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
-
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
-        BrowserModule,
-        FormsModule,
-        ZXingScannerModule.forRoot()
+        RouterTestingModule
       ],
       declarations: [
         AppComponent
@@ -21,16 +14,22 @@ describe('AppComponent', () => {
     }).compileComponents();
   }));
 
-  it('should create the app', async(() => {
+  it('should create the app', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
-  }));
+  });
 
-  it('should render zxing-scanner tag', async(() => {
+  it(`should have as title 'uni-app'`, () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.debugElement.componentInstance;
+    expect(app.title).toEqual('uni-app');
+  });
+
+  it('should render title in a h1 tag', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('zxing-scanner')).toBeTruthy();
-  }));
+    expect(compiled.querySelector('h1').textContent).toContain('Welcome to uni-app!');
+  });
 });

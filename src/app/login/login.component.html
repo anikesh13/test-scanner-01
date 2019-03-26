@@ -1,0 +1,17 @@
+<div class="container">
+  <label for="uname"><b>email</b></label>
+  <input type="text" placeholder="Enter Username" [(ngModel)]="data1.email" name="email" required>
+
+  <label for="psw"><b>Password</b></label>
+  <input type="password" placeholder="Enter Password" [(ngModel)]="data1.password" name="password" required>
+      
+  <button type="submit" (click)="login(data1)">Login</button>
+  <label>
+    <input type="checkbox" checked="checked" name="remember"> Remember me
+  </label>
+</div>
+
+<button (click)="signInWithGoogle()">google</button>
+<button (click)="signInWithFB()">fb</button>
+<button (click)="signInWithLinkedIn()">signInWithLinkedIn</button>
+<!-- <button (click)="signOut()">signOut</button> -->

@@ -1,0 +1,92 @@
+<a (click)="logout()">logout</a>
+<h1>Dashboard Layout</h1>
+
+<ul>
+  <li *ngFor="let hero of heroes;index as i">
+    <button (click)="data(hero)"> {{ hero.email }}</button>|<button (click)="hel(hero._id, i)">delete</button>
+  </li>
+</ul>
+<div>
+  <span class="login100-form-title p-b-55">
+    Registration form
+  </span>
+
+  <div class="wrap-input100 validate-input m-b-16">
+    <mat-form-field class="example-full-width">
+      <input matInput placeholder="First Name" [(ngModel)]="info.firstName">
+    </mat-form-field>
+    <span class="focus-input100"></span>
+    <span class="symbol-input100">
+      <span class="lnr lnr-user"></span>
+    </span>
+  </div>
+
+  <div class="wrap-input100 validate-input m-b-16">
+    <input class="input100" type="text" [(ngModel)]="info.lastName" name="lastname" #lastname="ngModel" placeholder="Last Name"
+      required>
+    <span class="focus-input100"></span>
+    <span class="symbol-input100">
+      <span class="lnr lnr-user"></span>
+    </span>
+  </div>
+
+  <div class="wrap-input100 validate-input m-b-16">
+    <input class="input100" type="text" [(ngModel)]="info.cell" name="cell" #cell="ngModel" placeholder="(+91)"
+      required>
+    <span class="focus-input100"></span>
+    <span class="symbol-input100">
+      <span class="lnr lnr-phone-handset"></span>
+    </span>
+  </div>
+
+  <div class="wrap-input100 validate-input m-b-16">
+    <input class="input100" type="text" [(ngModel)]="info.email" name="email" #email="ngModel" placeholder="Email"
+      required>
+    <span class="focus-input100"></span>
+    <span class="symbol-input100">
+      <span class="lnr lnr-envelope"></span>
+    </span>
+  </div>
+
+  <div class="wrap-input100 validate-input m-b-16">
+    <input class="input100" type="text" [(ngModel)]="info.password" name="password" #password="ngModel" placeholder="Password"
+      required>
+    <span class="focus-input100"></span>
+    <span class="symbol-input100">
+      <span class="lnr lnr-lock"></span>
+    </span>
+  </div>
+
+  <div class="container-login100-form-btn p-t-25">
+    <button class="login100-form-btn" (click)="Submit()">
+      Register
+    </button>
+  </div>
+
+</div>
+
+
+<!-- <div class="bounds">
+  <div class="content" 
+  fxLayout="row" 
+  fxLayout.xs="column" 
+  fxFlexFill >
+  <div fxFlex="15" class="sec1" fxFlex.xs="55">
+  first-section
+  </div>
+  <div fxFlex="30" class="sec2" >
+  second-section
+  </div>
+  <div fxFlex="55" class="sec3" fxFlex.xs="15">
+  third-section
+  </div>
+  </div>
+  </div> -->
+
+<p>
+  <a routerLink="home">Home</a> |
+  <a routerLink="admin"> Admin </a> |
+  <a routerLink="option">option</a>
+
+</p>
+<router-outlet></router-outlet>
