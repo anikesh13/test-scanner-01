@@ -4,6 +4,7 @@ import { AuthService, FacebookLoginProvider, GoogleLoginProvider, LinkedInLoginP
 import isIncognito from 'is-incognito';
 import { LogService } from './log.service';
 import { isPlatformBrowser } from '@angular/common';
+import { BarcodeFormat } from '@zxing/library';
 // const isIncognito = require('is-incognito');
 
 
@@ -17,6 +18,7 @@ export class AppComponent implements OnInit {
   // list = localStorage.setItem('list', JSON.stringify('resultArray.body'));
   // list1 = localStorage.setItem('list1', JSON.stringify('resultArray.body1'));
   private user: SocialUser;
+  allowedFormats = [ BarcodeFormat.QR_CODE, BarcodeFormat.EAN_13, BarcodeFormat.CODE_128, BarcodeFormat.DATA_MATRIX /*, ...*/ ];
   // private loggedIn: boolean;
   constructor(private authService: AuthService,
     private log: LogService,
