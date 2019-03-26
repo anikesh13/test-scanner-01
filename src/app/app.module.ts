@@ -11,6 +11,7 @@ import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { AsPipe } from './as.pipe';
+import { ZXingScannerModule } from './modules/zxing-scanner/zxing-scanner.module';
 
 
 let config = new AuthServiceConfig([
@@ -48,7 +49,8 @@ export function provideConfig() {
     SocialLoginModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ZXingScannerModule
   ],
   providers: [
     {
