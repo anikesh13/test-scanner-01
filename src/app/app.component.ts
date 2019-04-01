@@ -38,13 +38,15 @@ export class AppComponent implements OnInit {
   qrResultString: string;
   qrResult: Result;
 
-  availableDevices: MediaDeviceInfo[];
+  availableDevices: any;
   currentDevice: MediaDeviceInfo;
 
 
   displayCameras(cameras: MediaDeviceInfo[]) {
     console.debug('Devices: ', cameras);
     this.availableDevices = cameras;
+    const last = (this.availableDevices.length - 1);
+    this.availableDevices = this.availableDevices[last];
     console.log('ccccccccccccccccccc', this.availableDevices);
   }
 
@@ -58,6 +60,10 @@ export class AppComponent implements OnInit {
     console.debug('Selection changed: ', selectedValue);
     this.currentDevice = this.scanner.getDeviceById(selectedValue);
     console.log('aaaaaaaaaaaaaaaaaaaaaaaaa', this.currentDevice);
+    console.log('ccccccccccccccccccc', this.availableDevices);
+    console.log('bbbbbbbbbbbbbbbbbbbbbbbbbbbb', this.qrResultString);
+
+
   }
 
   // stateToEmoji(state: boolean): string {
