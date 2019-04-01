@@ -25,7 +25,7 @@
   
   </div>
   
-  <ng-container *ngIf="hasPermission === undefined">
+  <div *ngIf="hasPermission === undefined">
   
     <h2>Waiting for permissions.</h2>
   
@@ -33,15 +33,15 @@
       If your device does not has cameras, no permissions will be asked.
     </blockquote>
   
-  </ng-container>
+  </div>
   
-  <ng-container *ngIf="hasPermission === false">
+  <div *ngIf="hasPermission === false">
   
-    <h2>You denied the camera permission, we can't scan anything without it. 😪</h2>
+    <h2>You denied the camera permission, we can't scan anything without it.</h2>
   
-  </ng-container>
+  </div>
   
-  <ng-container *ngIf="hasDevices === undefined">
+  <div *ngIf="hasDevices === undefined">
   
     <h2>Couldn't check for devices.</h2>
   
@@ -49,19 +49,15 @@
       This may be caused by some security error.
     </blockquote>
   
-  </ng-container>
+  </div>
   
-  <ng-container *ngIf="hasDevices === false">
+  <div *ngIf="hasDevices === false">
   
-    <h2>No devices were found.</h2>
+    <h3>No devices were found. Please enter card number manually.</h3>
+    
+  </div>
   
-    <blockquote>
-      I believe your device has no media devices attached to.
-    </blockquote>
-  
-  </ng-container>
-  
-  <footer>
+  <!-- <footer>
     <table class="table-scanner-state">
       <thead>
         <tr>
@@ -81,5 +77,5 @@
       </tbody>
     </table>
     <p class="ng-version">Angular version: {{ ngVersion }}</p>
-  </footer>
+  </footer> -->
 <router-outlet></router-outlet>

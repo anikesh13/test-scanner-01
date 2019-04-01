@@ -20,7 +20,7 @@ export class AppComponent implements OnInit {
   // list = localStorage.setItem('list', JSON.stringify('resultArray.body'));
   // list1 = localStorage.setItem('list1', JSON.stringify('resultArray.body1'));
   private user: SocialUser;
-  allowedFormats = [ BarcodeFormat.QR_CODE, BarcodeFormat.EAN_13, BarcodeFormat.CODE_128, BarcodeFormat.DATA_MATRIX /*, ...*/ ];
+  // allowedFormats = [ BarcodeFormat.QR_CODE, BarcodeFormat.EAN_13, BarcodeFormat.CODE_128, BarcodeFormat.DATA_MATRIX /*, ...*/ ];
   // private loggedIn: boolean;
   constructor(private authService: AuthService,
     private log: LogService,
@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
     @Inject(PLATFORM_ID) private platformId: Object) { }
 
 
-    ngVersion = VERSION.full;
+    // ngVersion = VERSION.full;
 
   @ViewChild('scanner')
   scanner: ZXingScannerComponent;
@@ -57,21 +57,21 @@ export class AppComponent implements OnInit {
     this.currentDevice = this.scanner.getDeviceById(selectedValue);
   }
 
-  stateToEmoji(state: boolean): string {
+  // stateToEmoji(state: boolean): string {
 
-    const states = {
-      // not checked
-      undefined: '❔',
-      // failed to check
-      null: '⭕',
-      // success
-      true: '✔',
-      // can't touch that
-      false: '❌'
-    };
+  //   const states = {
+  //     // not checked
+  //     undefined: '❔',
+  //     // failed to check
+  //     null: '⭕',
+  //     // success
+  //     true: '✔',
+  //     // can't touch that
+  //     false: '❌'
+  //   };
 
-    return states['' + state];
-  }
+  //   return states['' + state];
+  // }
 
 
   ngOnInit() {
