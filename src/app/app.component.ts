@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
     @Inject(PLATFORM_ID) private platformId: Object) { }
 
 
-    // ngVersion = VERSION.full;
+  // ngVersion = VERSION.full;
 
   @ViewChild('scanner')
   scanner: ZXingScannerComponent;
@@ -45,16 +45,19 @@ export class AppComponent implements OnInit {
   displayCameras(cameras: MediaDeviceInfo[]) {
     console.debug('Devices: ', cameras);
     this.availableDevices = cameras;
+    console.log('ccccccccccccccccccc', this.availableDevices);
   }
 
   handleQrCodeResult(resultString: string) {
     console.debug('Result: ', resultString);
     this.qrResultString = resultString;
+    console.log('bbbbbbbbbbbbbbbbbbbbbbbbbbbb', this.qrResultString);
   }
 
   onDeviceSelectChange(selectedValue: string) {
     console.debug('Selection changed: ', selectedValue);
     this.currentDevice = this.scanner.getDeviceById(selectedValue);
+    console.log('aaaaaaaaaaaaaaaaaaaaaaaaa', this.currentDevice);
   }
 
   // stateToEmoji(state: boolean): string {
@@ -144,5 +147,5 @@ export class AppComponent implements OnInit {
   signOut(): void {
     this.authService.signOut();
   }
- 
+
 }
