@@ -56,13 +56,13 @@ export class AppComponent implements OnInit {
     // console.log('bbbbbbbbbbbbbbbbbbbbbbbbbbbb', this.qrResultString);
   }
 
-  onDeviceSelectChange(selectedValue: string) {
-    console.debug('Selection changed: ', selectedValue);
-    this.currentDevice = this.scanner.getDeviceById(selectedValue);
-    console.log('aaaaaaaaaaaaaaaaaaaaaaaaa', this.currentDevice);
-    console.log('ccccccccccccccccccc', this.availableDevices);
-    console.log('bbbbbbbbbbbbbbbbbbbbbbbbbbbb', this.qrResultString);
-  }
+  // onDeviceSelectChange(selectedValue: string) {
+  //   console.debug('Selection changed: ', selectedValue);
+  //   this.currentDevice = this.scanner.getDeviceById(selectedValue);
+  //   console.log('aaaaaaaaaaaaaaaaaaaaaaaaa', this.currentDevice);
+  //   console.log('ccccccccccccccccccc', this.availableDevices);
+  //   // console.log('bbbbbbbbbbbbbbbbbbbbbbbbbbbb', this.qrResultString);
+  // }
 
   // stateToEmoji(state: boolean): string {
 
