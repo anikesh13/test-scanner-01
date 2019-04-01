@@ -62,8 +62,6 @@ export class AppComponent implements OnInit {
     console.log('aaaaaaaaaaaaaaaaaaaaaaaaa', this.currentDevice);
     console.log('ccccccccccccccccccc', this.availableDevices);
     console.log('bbbbbbbbbbbbbbbbbbbbbbbbbbbb', this.qrResultString);
-
-
   }
 
   // stateToEmoji(state: boolean): string {

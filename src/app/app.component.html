@@ -3,61 +3,63 @@
 <button (click)="signInWithLinkedIn()">signInWithLinkedIn</button>
 <button (click)="signOut()">signOut</button> -->
 <p>
-    <a [routerLink]="['/login']">login</a> |
-    <a routerLink="registration"> registration </a>
+  <a [routerLink]="['/login']">login</a> |
+  <a routerLink="registration"> registration </a>
 </p>
 
 <div class="scanner-shell" [hidden]="!hasDevices">
 
-    <header>
-      <select (change)="onDeviceSelectChange($event.target.value)">
-        <!-- <option value="" [selected]="!currentDevice">No Device Selected</option> -->
-        <option *ngFor="let device of availableDevices" [value]="device.deviceId" [selected]="currentDevice && device.deviceId === currentDevice.deviceId">{{device.label}}</option>
-      </select>
-    </header>
-  
-    <zxing-scanner #scanner [device]="currentDevice" (scanSuccess)="handleQrCodeResult($event)" [formats]="['EAN_13', 'CODE_128', 'QR_CODE']" [tryHarder]="true"></zxing-scanner>
-  
-    <section class="results" *ngIf="qrResultString">
-      <small>Result</small>
-      <strong>{{ qrResultString }}</strong>
-    </section>
-  
-  </div>
-  
-  <div *ngIf="hasPermission === undefined">
-  
-    <h2>Waiting for permissions.</h2>
-  
-    <blockquote>
-      If your device does not has cameras, no permissions will be asked.
-    </blockquote>
-  
-  </div>
-  
-  <div *ngIf="hasPermission === false">
-  
-    <h2>You denied the camera permission, we can't scan anything without it.</h2>
-  
-  </div>
-  
-  <div *ngIf="hasDevices === undefined">
-  
-    <h2>Couldn't check for devices.</h2>
-  
-    <blockquote>
-      This may be caused by some security error.
-    </blockquote>
-  
-  </div>
-  
-  <div *ngIf="hasDevices === false">
-  
-    <h3>No devices were found. Please enter card number manually.</h3>
-    
-  </div>
-  
-  <!-- <footer>
+  <header>
+    <select (change)="onDeviceSelectChange($event.target.value)">
+      <option value="" [selected]="!currentDevice">No Device Selected</option>
+      <option *ngFor="let device of availableDevices" [value]="device.deviceId"
+        [selected]="currentDevice && device.deviceId === currentDevice.deviceId">{{device.label}}</option>
+    </select>
+  </header>
+
+  <zxing-scanner #scanner [device]="currentDevice" (scanSuccess)="handleQrCodeResult($event)"
+    [formats]="['EAN_13', 'CODE_128', 'QR_CODE']" [tryHarder]="true"></zxing-scanner>
+
+  <section class="results" *ngIf="qrResultString">
+    <small>Result</small>
+    <strong>{{ qrResultString }}</strong>
+  </section>
+
+</div>
+
+<div *ngIf="hasPermission === undefined">
+
+  <h2>Waiting for permissions.</h2>
+
+  <blockquote>
+    If your device does not has cameras, no permissions will be asked.
+  </blockquote>
+
+</div>
+
+<div *ngIf="hasPermission === false">
+
+  <h2>You denied the camera permission, we can't scan anything without it.</h2>
+
+</div>
+
+<div *ngIf="hasDevices === undefined">
+
+  <h2>Couldn't check for devices.</h2>
+
+  <blockquote>
+    This may be caused by some security error.
+  </blockquote>
+
+</div>
+
+<div *ngIf="hasDevices === false">
+
+  <h3>No devices were found. Please enter card number manually.</h3>
+
+</div>
+
+<!-- <footer>
     <table class="table-scanner-state">
       <thead>
         <tr>
