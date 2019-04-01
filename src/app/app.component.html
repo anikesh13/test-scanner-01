@@ -11,7 +11,7 @@
 `
     <header>
       <select (change)="onDeviceSelectChange($event.target.value)">
-        <option value="" [selected]="!currentDevice">No Device Selected</option>
+        <!-- <option value="" [selected]="!currentDevice">No Device Selected</option> -->
         <option *ngFor="let device of availableDevices" [value]="device.deviceId" [selected]="(availableDevices.lenght-1)">{{device.label}}</option>
       </select>
     </header>
