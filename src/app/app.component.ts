@@ -47,13 +47,13 @@ export class AppComponent implements OnInit {
     this.availableDevices = cameras;
     const last = (this.availableDevices.length - 1);
     this.availableDevices = this.availableDevices[last];
-    console.log('ccccccccccccccccccc', this.availableDevices);
+    // console.log('ccccccccccccccccccc', this.availableDevices);
   }
 
   handleQrCodeResult(resultString: string) {
     console.debug('Result: ', resultString);
     this.qrResultString = resultString;
-    console.log('bbbbbbbbbbbbbbbbbbbbbbbbbbbb', this.qrResultString);
+    // console.log('bbbbbbbbbbbbbbbbbbbbbbbbbbbb', this.qrResultString);
   }
 
   onDeviceSelectChange(selectedValue: string) {

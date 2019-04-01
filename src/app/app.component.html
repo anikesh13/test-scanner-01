@@ -11,13 +11,13 @@
 
   <header>
     <select (change)="onDeviceSelectChange($event.target.value)">
-      <option value="" [selected]="!currentDevice">No Device Selected</option>
+      <!-- <option value="" [selected]="!currentDevice">No Device Selected</option> -->
       <option *ngFor="let device of availableDevices" [value]="device.deviceId"
         [selected]="currentDevice && device.deviceId === currentDevice.deviceId">{{device.label}}</option>
     </select>
   </header>
 
-  <zxing-scanner #scanner [device]="currentDevice" (scanSuccess)="handleQrCodeResult($event)"
+  <zxing-scanner #scanner [device]="availableDevices" (scanSuccess)="handleQrCodeResult($event)"
     [formats]="['EAN_13', 'CODE_128', 'QR_CODE']" [tryHarder]="true"></zxing-scanner>
 
   <section class="results" *ngIf="qrResultString">
