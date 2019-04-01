@@ -86,15 +86,17 @@ export class AppComponent implements OnInit {
     this.scanner.camerasFound.subscribe((devices: MediaDeviceInfo[]) => {
       this.hasDevices = true;
       this.availableDevices = devices;
+      
 
       // selects the devices's back camera by default
-      // for (const device of devices) {
-      //     if (/back|rear|environment/gi.test(device.label)) {
-      //         this.scanner.changeDevice(device);
-      //         this.currentDevice = device;
-      //         break;
-      //     }
-      // }
+      for (const device of devices) {
+          if (/back|rear|environment/gi.test(device.label)) {
+              this.scanner.changeDevice(device);
+              this.currentDevice = device;
+              console.log(this.currentDevice);              
+              break;
+          }
+      }
     });
 
     this.scanner.camerasNotFound.subscribe(() => this.hasDevices = false);
