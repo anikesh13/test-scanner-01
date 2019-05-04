@@ -32,8 +32,8 @@ export class AppComponent implements OnInit {
   @ViewChild('scanner')
   scanner: ZXingScannerComponent;
 
-  hasDevices: boolean = false;
-  hasPermission: boolean;
+  hasDevices: boolean;
+  hasPermission: boolean = false;
   qrResultString: string;
   qrResult: Result;
 
