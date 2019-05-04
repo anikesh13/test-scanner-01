@@ -1,12 +1,11 @@
+import { isPlatformBrowser } from '@angular/common';
 import { Component, Inject, OnInit, PLATFORM_ID, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
+import { Result } from '@zxing/library';
 import { AuthService, FacebookLoginProvider, GoogleLoginProvider, LinkedInLoginProvider, SocialUser } from 'angularx-social-login';
 import isIncognito from 'is-incognito';
 import { LogService } from './log.service';
-import { isPlatformBrowser } from '@angular/common';
-import { BarcodeFormat, Result } from '@zxing/library';
 import { ZXingScannerComponent } from './modules/zxing-scanner/zxing-scanner.component';
-import { VERSION } from '@angular/forms';
 // const isIncognito = require('is-incognito');
 
 
@@ -86,22 +85,25 @@ export class AppComponent implements OnInit {
     this.scanner.camerasFound.subscribe((devices: MediaDeviceInfo[]) => {
       this.hasDevices = true;
       this.availableDevices = devices;
-      
+
 
       // selects the devices's back camera by default
       for (const device of devices) {
-          if (/back|rear|environment/gi.test(device.label)) {
-              this.scanner.changeDevice(device);
-              this.currentDevice = device;
-              console.log(this.currentDevice);              
-              break;
-          }
+        if (/back|rear|environment/gi.test(device.label)) {
+          this.scanner.changeDevice(device);
+          this.currentDevice = device;
+          console.log(this.currentDevice);
+          break;
+        }
       }
     });
 
     this.scanner.camerasNotFound.subscribe(() => this.hasDevices = false);
     this.scanner.scanComplete.subscribe((result: Result) => this.qrResult = result);
-    this.scanner.permissionResponse.subscribe((perm: boolean) => this.hasPermission = perm);
+    this.scanner.permissionResponse.subscribe((perm: boolean) => {
+      this.hasPermission = perm;
+      console.log(this.hasPermission);
+    });
 
 
     this.log.getDetails().subscribe(hello => {

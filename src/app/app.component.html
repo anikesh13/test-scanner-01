@@ -7,7 +7,7 @@
   <a routerLink="registration"> registration </a>
 </p>
 
-<div class="scanner-shell" [hidden]="!hasDevices">
+<div class="scanner-shell" [hidden]="!hasDevices" *ngIf="hasPermission">
 
   <header>
     <!-- <select (change)="onDeviceSelectChange($event.target.value)">
