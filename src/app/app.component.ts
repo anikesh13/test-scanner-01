@@ -88,16 +88,14 @@ export class AppComponent implements OnInit {
       this.hasDevices = true;
       this.availableDevices = devices;
 
-
       // selects the devices's back camera by default
-      for (const device of devices) {
-        if (/back|rear|environment/gi.test(device.label)) {
-          this.scanner.changeDevice(device);
-          this.currentDevice = device;
-          console.log(this.currentDevice);
-          break;
-        }
-      }
+      // for (const device of devices) {
+      //     if (/back|rear|environment/gi.test(device.label)) {
+      //         this.scanner.changeDevice(device);
+      //         this.currentDevice = device;
+      //         break;
+      //     }
+      // }
     });
 
     this.scanner.camerasNotFound.subscribe(() => this.hasDevices = false);
