@@ -19,7 +19,7 @@
   </header>
 
   <zxing-scanner #scanner [device]="availableDevices" (scanSuccess)="handleQrCodeResult($event)"
-    [formats]="['EAN_13', 'CODE_128', 'QR_CODE']" [tryHarder]="true" [hidden]="!hasPermission"></zxing-scanner>
+    [formats]="['EAN_13', 'CODE_128', 'QR_CODE']" [tryHarder]="true"></zxing-scanner>
 
   <section class="results" *ngIf="qrResultString">
     <small>Result</small>
