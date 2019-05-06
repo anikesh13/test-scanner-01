@@ -82,7 +82,7 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
 
-    // this.hasPermission = false;
+    this.hasPermission = false;
 
     this.scanner.camerasFound.subscribe((devices: MediaDeviceInfo[]) => {
       this.hasDevices = true;
@@ -102,7 +102,7 @@ export class AppComponent implements OnInit {
     this.scanner.scanComplete.subscribe((result: Result) => this.qrResult = result);
     this.scanner.permissionResponse.subscribe((perm: boolean) => {
       this.hasPermission = perm;
-      console.log(this.hasPermission);
+      console.log("this.hasPermissio",perm);
     });
 
 
