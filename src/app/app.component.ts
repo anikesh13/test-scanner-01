@@ -33,7 +33,7 @@ export class AppComponent implements OnInit {
   scanner: ZXingScannerComponent;
 
   hasDevices: boolean;
-  hasPermission: boolean = false;
+  hasPermission: boolean;
   qrResultString: string;
   qrResult: Result;
 
@@ -81,6 +81,8 @@ export class AppComponent implements OnInit {
 
 
   ngOnInit() {
+
+    this.hasPermission = false;
 
     this.scanner.camerasFound.subscribe((devices: MediaDeviceInfo[]) => {
       this.hasDevices = true;
