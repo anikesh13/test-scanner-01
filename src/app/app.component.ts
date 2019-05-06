@@ -33,7 +33,7 @@ export class AppComponent implements OnInit {
   scanner: ZXingScannerComponent;
 
   hasDevices: boolean;
-  hasPermission: boolean;
+  hasPermission;
   qrResultString: string;
   qrResult: Result;
 
